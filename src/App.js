@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       Project boshlashga tayyor!
-      
+      aaaaaaaaaaaaaaaaaaaaa
     </div>
   );
 }
