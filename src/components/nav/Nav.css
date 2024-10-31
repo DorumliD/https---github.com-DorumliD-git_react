@@ -1,0 +1,202 @@
+nav {
+    width: 35%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    user-select: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0px 10px;
+    border-radius: 50px;
+    background: #494949;
+    z-index: 100;
+}
+
+
+.nav-animation {
+    width: calc(35% + 5px);
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    user-select: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%; 
+    transform: translateX(-50%) translateY(2.5px);
+    padding: 0px 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.nav-animation::before,
+.nav-animation::after {
+    background-image: conic-gradient(#ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    content: "";
+    position: absolute;
+    height: 810%;
+    width: 100%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 3px;
+    animation: animate 4s linear infinite;
+}
+
+.nav-animation::after {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+
+nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+nav ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+nav ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.3em;
+    text-align: center;
+    color: #0fe;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+
+nav ul li.active a .icon {
+    text-shadow: 0 0 10px #0fe;
+    transform: translateY(-32px);
+    transition: 0.5s;
+}
+
+nav ul li a .text {
+    position: absolute;
+    color: #0fe;
+    text-shadow: 0 0 15px #0fe;
+    font-size: 0.80em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+nav ul li.active a .text {
+    opacity: 1;
+    transform: translateY(15px);
+}
+
+
+nav ul li a .circle {
+    position: absolute;
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.5s;
+    border: 1.8px solid #0fe;
+    z-index: 10;
+    transform: translateY(-37px) scale(0);
+}
+
+nav ul li.active a .circle {
+    transform: translateY(-32px) scale(1);
+}
+
+
+.indicator {
+    position: absolute;
+    top: calc(-50% + 2px);
+    width: 70px;
+    height: 70px;
+    background: #494949;
+    /* background-image: conic-gradient(#ff4545, #00ff99, #006aff, #ff0095, #ff4545); */
+    border-radius: 50%;
+    border: 6px solid #3e3e3e;
+    transition: 0.5s;
+}
+
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -22px;
+    width: 20px;
+    height: 19px;
+    background: transparent;
+    border-top-right-radius: 22px;
+    box-shadow: 0 -11px 0 0 #3e3e3e;
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    right: -22px;
+    width: 20px;
+    height: 19px;
+    background: transparent;
+    border-top-left-radius: 22px;
+    box-shadow: 0 -10px 0 0 #3e3e3e;
+}
+
+
+nav ul li:nth-child(1).active~.indicator {
+    transform: translateX(calc(-300% + 1.5px));
+}
+
+nav ul li:nth-child(2).active~.indicator {
+    transform: translateX(calc(-150% + 0.5px));
+}
+
+nav ul li:nth-child(3).active~.indicator {
+    transform: translateX(calc(0px));
+}
+
+nav ul li:nth-child(4).active~.indicator {
+    transform: translateX(calc(150% - 1px));
+}
+
+nav ul li:nth-child(5).active~.indicator {
+    transform: translateX(calc(300% - 2px));
+}
