@@ -4,7 +4,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Project boshlashga tayyor!1
+      Project boshlashga tayyor!
+      
     </div>
   );
 }
